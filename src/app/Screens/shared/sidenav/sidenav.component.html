@@ -1,1 +1,112 @@
-<p>sidenav works!</p>
+<section [class]="isCollapsed ? 'collapsed' : ''">
+    <nav>
+        <div class="nav-header">
+            <div class="logo">
+                <img src="../../../../assets/logo/logo.svg" alt="" srcset="" (click)="toggleSideNav()">
+                <img *ngIf="!isCollapsed" class="text" src="../../../../assets/logo/logo-text.svg" alt="">
+            </div>
+            <div class="nav-close" *ngIf="!isCollapsed">
+                <button type="button" (click)="toggleSideNav()">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g clip-path="url(#clip0_76_189)">
+                        <path d="M7 7L17 17M7 17L17 7" stroke="#333333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </g>
+                        <defs>
+                        <clipPath id="clip0_76_189">
+                        <rect width="24" height="24" fill="white"/>
+                        </clipPath>
+                        </defs>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul>
+            <li>
+                <a routerLink='/home' [class]="checkActiveRouter('/home')? 'active' : ''">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g clip-path="url(#clip0_76_150)">
+                            <path d="M19 10V19C19 20.1046 18.1046 21 17 21H7C5.89543 21 5 20.1046 5 19V10M21 12L12 3L3 12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </g>
+                        <defs>
+                            <clipPath id="clip0_76_150">
+                                <rect width="24" height="24" fill="white"/>
+                            </clipPath>
+                        </defs>
+                    </svg>
+                        
+                    <span *ngIf="!isCollapsed">Home</span>
+                </a>
+            </li>
+            <li>
+                <a routerLink='/flowers' [class]="checkActiveRouter('/flowers')? 'active' : ''">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g clip-path="url(#clip0_76_178)">
+                        <path d="M3 21H5M21 21H19M5 21H19M5 21V9.32837M19 21V9.32837M5 9.32837C4.96299 9.307 4.92651 9.28434 4.8906 9.2604L4.35024 8.90016C3.56331 8.37554 3.25144 7.37141 3.60269 6.49328L4.49711 4.25722C4.80084 3.4979 5.53626 3 6.35407 3H17.6459C18.4637 3 19.1992 3.4979 19.5029 4.25722L20.3973 6.49328C20.7486 7.37141 20.4367 8.37554 19.6498 8.90016L19.1094 9.2604C19.0735 9.28434 19.037 9.307 19 9.32837M5 9.32837C5.65537 9.70699 6.47351 9.68433 7.1094 9.2604L9 8L10.8906 9.2604C11.5624 9.70827 12.4376 9.70827 13.1094 9.2604L15 8L16.8906 9.2604C17.5265 9.68433 18.3446 9.70699 19 9.32837" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M14 21V16C14 14.8954 13.1046 14 12 14V14C10.8954 14 10 14.8954 10 16V21" stroke-width="2"/>
+                        </g>
+                        <defs>
+                        <clipPath id="clip0_76_178">
+                        <rect width="24" height="24" fill="white"/>
+                        </clipPath>
+                        </defs>
+                        </svg>
+                        
+                    <span *ngIf="!isCollapsed">Flowers</span>
+                </a>
+            </li>
+            <li>
+                <a routerLink='/profile' [class]="checkActiveRouter('/profile')? 'active' : ''">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g clip-path="url(#clip0_76_163)">
+                        <circle cx="12" cy="12" r="2" stroke-width="2"/>
+                        <path d="M5.39881 5.87909C4.46907 6.88119 3.79395 8.0704 3.40085 9.34448L5.00016 10.2678C6.3335 11.0376 6.3335 12.9621 5.00016 13.7319L3.39914 14.6563C3.59436 15.2863 3.86232 15.9046 4.20602 16.4999C4.54971 17.0952 4.95113 17.6363 5.39914 18.1204L7.00019 17.196C8.33352 16.4262 10.0002 17.3885 10.0002 18.9281L10.0002 20.7749C11.3001 21.0715 12.6676 21.0814 14.0003 20.7773L14.0003 18.9282C14.0003 17.3886 15.6669 16.4263 17.0003 17.1961L18.6017 18.1207C19.5314 17.1186 20.2065 15.9294 20.5996 14.6553L19.0003 13.7319C17.6669 12.9621 17.6669 11.0376 19.0003 10.2678L20.6013 9.34342C20.4061 8.7134 20.1382 8.09517 19.7945 7.49989C19.4508 6.90458 19.0493 6.3634 18.6013 5.87932L17.0003 6.80368C15.6669 7.57348 14.0003 6.61123 14.0003 5.07162L14.0003 3.22489C12.7003 2.92828 11.3329 2.91835 10.0002 3.22248L10.0002 5.0716C10.0002 6.6112 8.33352 7.57345 7.00019 6.80365L5.39881 5.87909Z" stroke-width="2" stroke-linejoin="round"/>
+                        </g>
+                        <defs>
+                        <clipPath id="clip0_76_163">
+                        <rect width="24" height="24" fill="white"/>
+                        </clipPath>
+                        </defs>
+                        </svg>
+                        
+                    <span *ngIf="!isCollapsed">Profile</span>
+                </a>
+            </li>
+            <li>
+                <a routerLink='/orders' [class]="checkActiveRouter('/orders')? 'active' : ''">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" id="orders">
+                        <g clip-path="url(#clip0_76_168)">
+                        <path d="M2 3V2C1.44772 2 1 2.44772 1 3H2ZM13 3H14C14 2.44772 13.5523 2 13 2V3ZM13 9V8C12.7348 8 12.4804 8.10536 12.2929 8.29289C12.1054 8.48043 12 8.73478 12 9L13 9ZM2 4H13V2H2V4ZM12 3V19H14V3H12ZM3 17V3H1V17H3ZM13 10H18V8H13V10ZM21 13V17H23V13H21ZM14 19L14 9L12 9L12 19L14 19ZM18.7071 19.7071C18.3166 20.0976 17.6834 20.0976 17.2929 19.7071L15.8787 21.1213C17.0503 22.2929 18.9497 22.2929 20.1213 21.1213L18.7071 19.7071ZM17.2929 18.2929C17.6834 17.9024 18.3166 17.9024 18.7071 18.2929L20.1213 16.8787C18.9497 15.7071 17.0503 15.7071 15.8787 16.8787L17.2929 18.2929ZM6.70711 19.7071C6.31658 20.0976 5.68342 20.0976 5.29289 19.7071L3.87868 21.1213C5.05025 22.2929 6.94975 22.2929 8.12132 21.1213L6.70711 19.7071ZM5.29289 18.2929C5.68342 17.9024 6.31658 17.9024 6.70711 18.2929L8.12132 16.8787C6.94975 15.7071 5.05025 15.7071 3.87868 16.8787L5.29289 18.2929ZM18.7071 18.2929C18.9026 18.4884 19 18.7425 19 19H21C21 18.2338 20.7069 17.4643 20.1213 16.8787L18.7071 18.2929ZM19 19C19 19.2575 18.9026 19.5116 18.7071 19.7071L20.1213 21.1213C20.7069 20.5357 21 19.7662 21 19H19ZM16 18H13V20H16V18ZM17.2929 19.7071C17.0974 19.5116 17 19.2575 17 19H15C15 19.7662 15.2931 20.5357 15.8787 21.1213L17.2929 19.7071ZM17 19C17 18.7425 17.0974 18.4884 17.2929 18.2929L15.8787 16.8787C15.2931 17.4643 15 18.2338 15 19H17ZM5.29289 19.7071C5.09744 19.5116 5 19.2575 5 19H3C3 19.7662 3.29309 20.5357 3.87868 21.1213L5.29289 19.7071ZM5 19C5 18.7425 5.09744 18.4884 5.29289 18.2929L3.87868 16.8787C3.29309 17.4643 3 18.2338 3 19H5ZM13 18H8V20H13V18ZM6.70711 18.2929C6.90256 18.4884 7 18.7425 7 19H9C9 18.2338 8.70691 17.4643 8.12132 16.8787L6.70711 18.2929ZM7 19C7 19.2575 6.90256 19.5116 6.70711 19.7071L8.12132 21.1213C8.70691 20.5357 9 19.7662 9 19H7ZM21 17C21 17.5523 20.5523 18 20 18V20C21.6569 20 23 18.6569 23 17H21ZM18 10C19.6569 10 21 11.3431 21 13H23C23 10.2386 20.7614 8 18 8V10ZM1 17C1 18.6569 2.34315 20 4 20V18C3.44772 18 3 17.5523 3 17H1Z"/>
+                        <path d="M2 8H5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M2 12H7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </g>
+                        <defs>
+                        <clipPath id="clip0_76_168">
+                        <rect width="24" height="24" fill="white"/>
+                        </clipPath>
+                        </defs>
+                        </svg>
+                        
+                    <span *ngIf="!isCollapsed">Orders</span>
+                </a>
+            </li>
+        </ul>
+        <div class="nav-footer">
+            <button type="button">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g clip-path="url(#clip0_76_183)">
+                    <path d="M8 10V7C8 4.79086 9.79086 3 12 3C14.2091 3 16 4.79086 16 7V10" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M5 10H19V19C19 20.1046 18.1046 21 17 21H7C5.89543 21 5 20.1046 5 19V10Z" stroke="#fff" stroke-width="2" stroke-linejoin="round"/>
+                    <rect x="14.5" y="15.5" width="0.01" height="0.01" stroke="#fff" stroke-width="3" stroke-linejoin="round"/>
+                    </g>
+                    <defs>
+                    <clipPath id="clip0_76_183">
+                    <rect width="24" height="24" fill="white"/>
+                    </clipPath>
+                    </defs>
+                    </svg>
+                    
+                <span  *ngIf="!isCollapsed">Logout</span>
+            </button>
+        </div>
+    </nav>
+</section>

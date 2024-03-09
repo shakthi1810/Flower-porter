@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sidenav',
@@ -6,5 +7,19 @@ import { Component } from '@angular/core';
   styleUrls: ['./sidenav.component.scss']
 })
 export class SidenavComponent {
+  constructor(private router:Router){}
+
+  isCollapsed:boolean = false
+  @Output() sideNavToggle:EventEmitter<boolean> = new EventEmitter<boolean>();
+
+  toggleSideNav(){
+    this.isCollapsed = !this.isCollapsed;
+    this.sideNavToggle.emit(this.isCollapsed);
+  }
+
+  checkActiveRouter(menu:string){
+    let route = this.router.routerState.snapshot.url;
+    return route === menu;
+  }
 
 }
