@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Flower-Porter';
+  isNavCollapsed:boolean = false;
+
+  isSideNavToggled(event:boolean){
+    this.isNavCollapsed = event;
+    console.log(this.isNavCollapsed)
+  }
 }

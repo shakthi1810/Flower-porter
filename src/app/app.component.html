@@ -1,1 +1,18 @@
-<router-outlet></router-outlet>
+<main>
+  <div class="d-flex">
+    <div class="sidenav">
+      <app-sidenav (sideNavToggle)="isSideNavToggled($event)"></app-sidenav>
+    </div>
+    <div class="mail-container">
+      <header>
+        <div class="row">
+          <div class="col-lg-6">
+            <h2>{{'Home'}}</h2>
+          </div>
+          <div class="col-lg-6"></div>
+        </div>
+      </header>
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</main>
